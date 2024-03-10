@@ -17,4 +17,7 @@ The [examples folder](https://github.com/ahmed605/imgui-uwp/tree/master/examples
 
 ### Screenshot
 
-![251296229-2de2145b-a51f-4150-ab26-74b25877c614](https://github.com/ahmed605/imgui-uwp/assets/34550324/d95d4604-93d4-44fa-89fa-5a56dc5cf1da)
+![DirectX 11](https://github.com/ahmed605/imgui-uwp/assets/34550324/d95d4604-93d4-44fa-89fa-5a56dc5cf1da)
+
+![DirectX 12](https://github.com/ahmed605/imgui-uwp/assets/34550324/85a198eb-f8a0-4298-9f3e-8631ba080c98)
+
