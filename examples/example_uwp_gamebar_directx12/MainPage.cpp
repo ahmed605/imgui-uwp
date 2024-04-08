@@ -85,7 +85,6 @@ namespace winrt::example_uwp_gamebar_directx12::implementation
 
 				// 2. Show a simple window that we create ourselves. We use a Begin/End pair to create a named window.
 				{
-					static float f = 0.0f;
 					static int counter = 0;
 
 					ImGui::Begin("Hello, world!");                          // Create a window called "Hello, world!" and append into it.
@@ -94,7 +93,7 @@ namespace winrt::example_uwp_gamebar_directx12::implementation
 					ImGui::Checkbox("Demo Window", &m_show_demo_window);      // Edit bools storing our window open/close state
 					ImGui::Checkbox("Another Window", &m_show_another_window);
 
-					ImGui::SliderFloat("float", &f, 0.0f, 1.0f);            // Edit 1 float using a slider from 0.0f to 1.0f
+					ImGui::SliderFloat("alpha", &m_clear_color.w, 0.0f, 1.0f);            // Edit 1 float using a slider from 0.0f to 1.0f
 					ImGui::ColorEdit3("clear color", (float*)&m_clear_color); // Edit 3 floats representing a color
 
 					if (ImGui::Button("Button"))                            // Buttons return true when clicked (most widgets return true when edited/activated)
@@ -240,7 +239,7 @@ namespace winrt::example_uwp_gamebar_directx12::implementation
 		swapChainDesc.BufferCount = NUM_BACK_BUFFERS;
 		swapChainDesc.SwapEffect = DXGI_SWAP_EFFECT_FLIP_SEQUENTIAL;
 		swapChainDesc.Flags = DXGI_SWAP_CHAIN_FLAG_FRAME_LATENCY_WAITABLE_OBJECT;
-		swapChainDesc.AlphaMode = DXGI_ALPHA_MODE_IGNORE;
+		swapChainDesc.AlphaMode = DXGI_ALPHA_MODE_PREMULTIPLIED;
 
 		com_ptr<IDXGIFactory4> dxgiFactory;
 		winrt::check_hresult(CreateDXGIFactory1(IID_PPV_ARGS(dxgiFactory.put())));
