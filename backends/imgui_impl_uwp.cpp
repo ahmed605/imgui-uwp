@@ -283,9 +283,12 @@ static bool ImGui_ImplUwp_InitEx(ABI::Windows::UI::Core::ICoreWindow* core_windo
                         //bd->KeyboardInputSource->add_CharacterReceived(Callback<CharacterReceived_Callback>(CharacterReceived).Get(), &bd->CharacterReceivedToken);
 
                         ComPtr<ABI::Windows::UI::Core::ICoreWindow> window = ImGui_ImplUwp_GetCoreWindowForCurrentThread();
-                        window->add_KeyDown(Callback<WindowKeyDown_Callback>(KeyDown).Get(), &bd->KeyDownToken);
-                        window->add_KeyUp(Callback<WindowKeyDown_Callback>(KeyUp).Get(), &bd->KeyUpToken);
-                        window->add_CharacterReceived(Callback<WindowCharacterReceived_Callback>(CharacterReceived).Get(), &bd->CharacterReceivedToken);
+                        if (window.Get())
+                        {
+                            window->add_KeyDown(Callback<WindowKeyDown_Callback>(KeyDown).Get(), &bd->KeyDownToken);
+                            window->add_KeyUp(Callback<WindowKeyDown_Callback>(KeyUp).Get(), &bd->KeyUpToken);
+                            window->add_CharacterReceived(Callback<WindowCharacterReceived_Callback>(CharacterReceived).Get(), &bd->CharacterReceivedToken);
+                        }
                     }
                 }
             }
@@ -355,6 +358,14 @@ void ImGui_ImplUwp_Shutdown()
 		//bd->KeyboardInputSource->remove_KeyDown(bd->KeyDownToken);
 		//bd->KeyboardInputSource->remove_KeyUp(bd->KeyUpToken);
 		//bd->KeyboardInputSource->remove_CharacterReceived(bd->CharacterReceivedToken);
+
+        ComPtr<ABI::Windows::UI::Core::ICoreWindow> window = ImGui_ImplUwp_GetCoreWindowForCurrentThread();
+        if (window.Get())
+        {
+            window->remove_KeyDown(bd->KeyDownToken);
+            window->remove_KeyUp(bd->KeyUpToken);
+            window->remove_CharacterReceived(bd->CharacterReceivedToken);
+        }
 
 		bd->PointerInputSource->Release();
 		bd->KeyboardInputSource->Release();
