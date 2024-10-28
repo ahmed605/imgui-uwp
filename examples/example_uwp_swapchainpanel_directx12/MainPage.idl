@@ -1,0 +1,8 @@
+namespace example_uwp_swapchainpanel_directx12
+{
+    [default_interface]
+    runtimeclass MainPage : Windows.UI.Xaml.Controls.Page
+    {
+        MainPage();
+    }
+}
