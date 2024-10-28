@@ -21,3 +21,8 @@ The [examples folder](https://github.com/ahmed605/imgui-uwp/tree/master/examples
 
 ![DirectX 12](https://github.com/ahmed605/imgui-uwp/assets/34550324/85a198eb-f8a0-4298-9f3e-8631ba080c98)
 
+![XAML SwapChainPanel - DirectX 12](https://github.com/user-attachments/assets/a5786a32-3da8-4bcd-862c-3dfc25b86bac)
+
+![GameBar Widget - DirectX 12](https://github.com/user-attachments/assets/085d1c73-c0f0-4f3f-8174-eec6cb2d8cce)
+
+
